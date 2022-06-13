@@ -1,0 +1,29 @@
+from replit import clear
+from art import logo
+
+print(logo)
+name_bid = {}
+
+def find_winner():
+  max_bid = 0
+  for bid in name_bid:
+    bid_value = name_bid[bid]
+    if bid_value > max_bid:
+      max_bid = bid_value
+      winner = bid
+  print(f"The winner is {winner} with ${max_bid}")
+
+def adding():
+  name = input("What is name? \n")
+  bid = int(input("What is bid? \n$"))
+  name_bid[name] = bid
+
+  resume_add = input("Do you want add other, yes or no \n")
+  
+  if resume_add == "yes":
+    clear
+    adding()
+  else:
+    find_winner()
+
+adding()
